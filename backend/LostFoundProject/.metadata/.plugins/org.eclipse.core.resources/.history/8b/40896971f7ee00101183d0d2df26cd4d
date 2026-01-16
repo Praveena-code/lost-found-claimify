@@ -1,0 +1,58 @@
+package com.infosys.lostFoundApplication.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.infosys.lostFoundApplication.bean.FoundItem;
+import com.infosys.lostFoundApplication.bean.LostItem;
+import com.infosys.lostFoundApplication.bean.MatchItem;
+import com.infosys.lostFoundApplication.bean.MatchItemDTO;
+import com.infosys.lostFoundApplication.dao.FoundItemDao;
+import com.infosys.lostFoundApplication.dao.LostItemDao;
+import com.infosys.lostFoundApplication.dao.MatchItemDao;
+
+@Service
+public class MatchItemService {
+
+    @Autowired
+    private LostItemDao lostItemDao;
+
+    @Autowired
+    private MatchItemDao matchItemDao;
+
+    @Autowired
+    private FoundItemDao foundItemDao;
+
+    // ✅ GET ALL MATCHED ITEMS (FOR MATCH ITEM LIST)
+    public List<MatchItem> getAllMatchedItems() {
+        return matchItemDao.getAllMatchedItems();
+    }
+
+    // ✅ UPDATE STATUS WHEN MATCHED
+    public void updateLostFoundItems(MatchItemDTO matchItemDTO) {
+
+        String lostItemId = matchItemDTO.getLostItemId();
+        String foundItemId = matchItemDTO.getFoundItemId();
+
+        LostItem lostItem = lostItemDao.getLostItemById(lostItemId);
+        FoundItem foundItem = foundItemDao.getFoundItemById(foundItemId);
+
+        lostItem.setStatus(true);
+        foundItem.setStatus(true);
+
+        lostItemDao.saveLostItem(lostItem);
+        foundItemDao.saveFoundItem(foundItem);
+
+        // 🔴 THIS PART WAS MISSING
+        MatchItem matchItem = new MatchItem();
+        matchItem.setLostItemId(lostItemId);
+        matchItem.setFoundItemId(foundItemId);
+        matchItem.setMatchedDate(LocalDate.now());
+
+        matchItemDao.saveMatchItem(matchItem);
+    }
+
+}

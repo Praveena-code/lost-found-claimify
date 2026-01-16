@@ -1,0 +1,5 @@
+package com.infosys.lostFoundApplication.dao;
+
+public class LostItemRepository {
+
+}

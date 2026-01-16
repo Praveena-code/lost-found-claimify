@@ -1,0 +1,7 @@
+package edu.demo.githubApplication;
+
+public class DemoGitApp {
+	public static void main(String[] args) {
+        System.out.println("Welcome to github app");
+    }
+}
