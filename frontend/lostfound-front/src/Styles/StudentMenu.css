@@ -1,0 +1,721 @@
+/* ========= Global ========= */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Outer React wrapper */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #ffffff;
+}
+
+/* page wrapper so content is centered on large screens */
+.student-shell,
+.student-header,
+.student-main,
+.student-footer,
+.nav-inner {
+  max-width: none;
+  margin: 0;
+}
+
+.student-page {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  animation: pageFadeIn 0.5s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.student-shell {
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========= Navbar ========= */
+.student-header {
+  width: 95vw;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+}
+
+.nav-inner {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* left logo */
+.student-logo-box {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0077ff;
+  cursor: default;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+.student-logo-box:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+/* right links */
+.nav-right {
+  flex: 1;
+  background: transparent !important;
+}
+/* app logo in navbar */
+.claimify-logo {
+  height: 70px;        /* perfect app-logo size */
+  width: auto;         /* keeps aspect ratio */
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* animated underline links */
+.nav-links .nav-link,
+#items-nav-dropdown {
+  position: relative;
+  color: #111111 !important;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links .nav-link::after,
+#items-nav-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;          /* a bit lower under text */
+  height: 1px !important;            /* thinner line */
+  width: 0%;             /* hidden by default */
+  background-color: #111111;
+  transition: width 0.25s ease;
+}
+
+.nav-links .nav-link:hover,
+#items-nav-dropdown:hover {
+  color: #374151 !important;
+}
+
+.nav-links .nav-link:hover::after,
+#items-nav-dropdown:hover::after {
+  width: 100%;
+}
+
+/* profile button */
+.profile-btn {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.profile-btn:hover {
+  transform: translateY(-2px);
+  background-color: #111827;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.32);
+}
+
+.profile-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.25);
+}
+
+/* ========= Hero section ========= */
+.student-main {
+  padding: 64px 80px 32px;
+}
+
+.hero-heading {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: left;
+  margin: 0 0 -41px;
+  color: #111111;
+  animation: heroSlideUp 0.55s ease-out;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-desc {
+  text-align: left;
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 32px;
+  animation: heroFadeIn 0.55s ease-out 0.1s both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* buttons + image stack row */
+.hero-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* left: buttons */
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.lost-btn,
+.found-btn {
+  min-width: 160px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.lost-btn {
+  background: #ef4444;
+}
+
+.found-btn {
+  background: #16a34a;
+}
+
+.lost-btn:hover,
+.found-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.32);
+  filter: brightness(1.05);
+}
+
+.lost-btn:active,
+.found-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.28);
+}
+
+/* right: stacked images */
+.hero-images {
+  position: relative;
+  width: 260px;
+  height: 210px;
+  margin-left: auto;
+  perspective: 800px;
+}
+
+/* base image style */
+.hero-img {
+  position: absolute;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* floating animation for subtle realism */
+.hero-img-top,
+.hero-img-right,
+.hero-img-bottom {
+  animation: floatCard 6s ease-in-out infinite alternate;
+}
+
+.hero-images:hover .hero-img-top {
+  transform: translateY(-8px) translateZ(20px) rotateZ(-2deg);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
+}
+
+.hero-images:hover .hero-img-right {
+  transform: translateY(-5px) translateZ(10px) rotateZ(2deg);
+}
+
+.hero-images:hover .hero-img-bottom {
+  transform: translateY(-4px) translateZ(6px) rotateZ(-1deg);
+}
+
+@keyframes floatCard {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+/* top card */
+.hero-img-top {
+  width: 160px;
+  height: 140px;
+  top: 30px;
+  left: 35px;
+  background-image: url("../assets/hero-top.svg");
+}
+
+/* middle card (right) */
+.hero-img-right {
+  width: 150px;
+  height: 150px;
+  top: 10px;
+  right: 242px;
+  background-image: url("../assets/hero-main.svg");
+}
+
+/* bottom card (left) */
+.hero-img-bottom {
+  width: 150px;
+  height: 150px;
+  bottom: -35px;
+  left: -39px;
+  background-image: url("../assets/hero-bottom.svg");
+}
+
+/* ========= Recent activity card ========= */
+.activity-section {
+  padding: 40px 80px 56px;
+}
+
+.activity-card {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px 26px 22px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft gradient accent bar */
+.activity-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(37, 99, 235, 0.08),
+    transparent 40%,
+    transparent 60%,
+    rgba(239, 68, 68, 0.08)
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.activity-title {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.activity-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #111111;
+}
+
+/* animated colored dots */
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.18);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 9px rgba(15, 23, 42, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(15, 23, 42, 0);
+  }
+}
+
+.dot-red {
+  background: #ef4444;
+}
+
+.dot-blue {
+  background: #2563eb;
+}
+
+.dot-green {
+  background: #22c55e;
+}
+
+/* ========= Footer ========= */
+.student-footer {
+  width: 100%;
+  padding: 24px 80px 32px;
+  border-top: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr);
+  column-gap: 40px;
+  row-gap: 16px;
+  align-items: flex-start;
+  background: #ffffff;
+}
+
+.footer-brand {
+  font-size: 13px;
+  color: #6b7280;
+  grid-column: 1 / -1;
+}
+
+/* 3 columns: Product, Support, Campus */
+.footer-cols {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* each column stacks vertically */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+}
+
+
+/* social icons row below everything */
+.footer-social {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.social-square {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.social-square:hover {
+  transform: translateY(-2px);
+  background-color: #d1d5db;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+}
+
+/* ========= Responsive ========= */
+@media (max-width: 900px) {
+  .nav-inner {
+    padding: 10px 16px;
+  }
+
+  .student-main {
+    padding: 40px 16px 24px;
+  }
+
+  .hero-heading {
+    font-size: 40px;
+  }
+
+  .hero-bottom-row {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .hero-images {
+    margin: 0 auto;
+  }
+
+  .activity-section {
+    padding: 28px 16px 40px;
+  }
+
+  .student-footer {
+    padding: 20px 16px 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ========= Extra polish ========= */
+
+/* soft section scrolling feel */
+.student-main,
+.activity-section,
+.student-footer {
+  scroll-margin-top: 80px;
+}
+
+/* slight background tint when hovering activity card */
+.activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 55px rgba(15, 23, 42, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  background-color: #f9fafb;
+}
+
+/* nav shadow appears when user scrolls down a bit (requires class toggle in JS if you want it dynamic, here it's always light) */
+.student-header {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* gentle gradient line under navbar */
+.student-header::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #0077ff 0%, transparent 40%, transparent 60%, #ef4444 100%);
+  opacity: 0.25;
+}
+
+/* focus style for accessibility */
+.nav-links .nav-link:focus-visible,
+#items-nav-dropdown:focus-visible,
+.profile-btn:focus-visible,
+.lost-btn:focus-visible,
+.found-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* slight parallax feel on hero when hovering whole row */
+.hero-bottom-row:hover .hero-images {
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}
+
+/* shimmer effect on profile button text */
+.profile-btn span,
+.profile-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profile-btn:hover::after {
+  opacity: 1;
+  animation: btnShine 0.9s ease;
+}
+
+@keyframes btnShine {
+  from {
+    transform: translateX(0) skewX(-20deg);
+  }
+  to {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+/* hover lift for footer columns */
+.footer-col:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+/* ========= Profile dropdown – final clean version ========= */
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* full-screen click-catcher */
+.profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 30;
+}
+
+/* card container */
+.profile-card {
+  position: absolute;
+  top: 52px;          /* just below Profile button */
+  right: 0;
+  width: 260px;
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 16px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: profileDropIn 0.22s ease-out;
+}
+
+@keyframes profileDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+/* avatar circle with first letter */
+.profile-avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #f97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.profile-card-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-card-email {
+  font-size: 12px;
+  color: #d1d5db;
+}
+
+/* footer row inside card */
+.profile-card-body {
+  border-top: 1px solid rgba(249, 250, 251, 0.08);
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* logout button */
+.profile-logout-btn {
+  border: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ef4444;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.6);
+}
+
+.profile-logout-btn:hover {
+  transform: translateY(-1px);
+}
+
+.profile-logout-btn:active {
+  transform: translateY(0);
+}
