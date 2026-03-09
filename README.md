@@ -14,7 +14,7 @@
 
 ---
 
-## í³Œ Project Overview
+## ï¿½ï¿½ï¿½ Project Overview
 
 **CampusTrack** is a modern web-based lost & found platform that helps students and staff quickly report, discover, and recover misplaced items on campus.
 
@@ -40,7 +40,7 @@ This project demonstrates full-stack engineering with a real-world campus use ca
 
 ---
 
-## í» ï¸ Tech Stack (Badges)
+## ï¿½ï¿½ï¿½ï¸ Tech Stack (Badges)
 
 <div align="center">
 
@@ -57,7 +57,7 @@ This project demonstrates full-stack engineering with a real-world campus use ca
 
 ---
 
-## í·  System Architecture
+## ï¿½ï¿½ï¿½ System Architecture
 
 ```mermaid
 flowchart LR
@@ -77,7 +77,7 @@ flowchart LR
 
 ---
 
-## í³ Project Structure
+## ï¿½ï¿½ï¿½ Project Structure
 
 ```text
 CampusTrack/
@@ -161,7 +161,7 @@ npm run dev
 
 ---
 
-## í´Œ API Endpoints
+## ï¿½ï¿½ï¿½ API Endpoints
 
 | Method | Endpoint | Description | Access |
 |---|---|---|---|
@@ -180,7 +180,7 @@ npm run dev
 
 ---
 
-## í±¥ User Roles
+## ï¿½ï¿½ï¿½ User Roles
 
 | Role | Permissions |
 |---|---|
@@ -189,7 +189,7 @@ npm run dev
 
 ---
 
-## íº€ Future Improvements
+## ï¿½ï¿½ï¿½ Future Improvements
 
 - AI-assisted image comparison for better match confidence
 - Real-time chat between finder and claimant
@@ -200,7 +200,7 @@ npm run dev
 
 ---
 
-## í´ Contributors
+## ï¿½ï¿½ï¿½ Contributors
 
 - **Praveena** - Full Stack Developer  
   GitHub: `https://github.com/Praveena-code`
@@ -213,7 +213,7 @@ Contributions are welcome.
 
 ---
 
-## í³„ License
+## ï¿½ï¿½ï¿½ License
 
 This project is licensed under the **MIT License**.  
 See the `LICENSE` file for complete details.
@@ -221,8 +221,5 @@ See the `LICENSE` file for complete details.
 ---
 
 <div align="center">
-
-### í´— Repository Link
-`https://github.com/Praveena-code/lost-found-claimify`
 
 </div>
