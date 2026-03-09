@@ -1,6 +1,6 @@
 <div align="center">
 
-# CampusTrack - Intelligent Lost & Found Locator
+# Claimify - Intelligent Lost & Found Locator
 
 ### Smart, secure, and community-driven lost & found platform for campus environments
 
@@ -16,7 +16,7 @@
 
 ## ��� Project Overview
 
-**CampusTrack** is a modern web-based lost & found platform that helps students and staff quickly report, discover, and recover misplaced items on campus.
+**Claimify** is a modern web-based lost & found platform that helps students and staff quickly report, discover, and recover misplaced items on campus.
 
 The system provides:
 - Structured posting for lost and found items
